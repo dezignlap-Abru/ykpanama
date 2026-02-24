@@ -271,14 +271,20 @@ export default function ApplicationForm() {
   const handleNext = () => {
     if (validateStep1()) {
       setStep(2);
-      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setError("");
+      // Scroll to the top of the form card, not the whole page
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 50);
     }
   };
 
   const handleBack = () => {
     setStep(1);
     setError("");
-    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 50);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -306,7 +312,9 @@ export default function ApplicationForm() {
       // no-cors mode returns opaque response, so we assume success
       void response;
       setIsSubmitted(true);
-      formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 50);
     } catch {
       setError(
         "Something went wrong. Please try again or contact us directly."
