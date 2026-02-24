@@ -97,24 +97,16 @@ export default function SnapScrollPage({
         className="h-[100dvh] overflow-y-auto snap-y snap-proximity"
       >
         {/* Snap sections */}
-        {snapSections.map((section, i) => {
-          // Last snap section (form) needs internal scrolling
-          const isScrollable = i === snapSections.length - 1;
-          return (
-            <section
-              key={i}
-              id={sectionIds[i] || undefined}
-              ref={setSectionRef(i)}
-              className={`h-[100dvh] snap-start relative ${
-                isScrollable
-                  ? "overflow-y-auto"
-                  : "flex items-center justify-center overflow-hidden"
-              }`}
-            >
-              {section}
-            </section>
-          );
-        })}
+        {snapSections.map((section, i) => (
+          <section
+            key={i}
+            id={sectionIds[i] || undefined}
+            ref={setSectionRef(i)}
+            className="h-[100dvh] snap-start relative flex items-center justify-center overflow-hidden"
+          >
+            {section}
+          </section>
+        ))}
 
         {/* Normal scroll sections (form, contact, footer) */}
         {normalSections.map((section, i) => (

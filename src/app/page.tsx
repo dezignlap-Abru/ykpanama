@@ -143,14 +143,14 @@ function AboutContent() {
   return (
     <>
       {/* Warm sandy gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/60 via-white to-sky-50/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-100/80 via-orange-50/40 to-sky-100/50" />
 
-      {/* Subtle decorative orbs */}
-      <div className="absolute top-10 right-10 w-64 h-64 bg-amber-200/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 left-10 w-48 h-48 bg-teal-200/15 rounded-full blur-3xl" />
+      {/* Decorative orbs */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-200/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-0 w-72 h-72 bg-teal-200/30 rounded-full blur-3xl" />
 
       {/* Mountain silhouette background */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-[0.04]">
+      <div className="absolute bottom-0 left-0 right-0 opacity-[0.08]">
         <svg viewBox="0 0 1440 400" preserveAspectRatio="none" className="w-full h-40 sm:h-64">
           <path fill="currentColor" d="M0,400 L0,300 L120,200 L200,260 L320,120 L400,200 L500,80 L600,180 L720,40 L840,160 L920,100 L1040,220 L1160,80 L1280,200 L1360,140 L1440,240 L1440,400Z" />
         </svg>
@@ -216,11 +216,11 @@ function ExperienceContent() {
   return (
     <>
       {/* Ocean-to-sand gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-50/50 via-white to-emerald-50/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-100/70 via-cyan-50/30 to-emerald-100/50" />
 
       {/* Decorative orbs */}
-      <div className="absolute top-20 -left-20 w-80 h-80 bg-sky-200/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 -right-16 w-72 h-72 bg-emerald-200/15 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-0 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-0 w-72 h-72 bg-emerald-200/30 rounded-full blur-3xl" />
 
       {/* Wave top from previous section */}
       <WaveTop color="#f8fafc" />
@@ -275,14 +275,14 @@ function JourneyPricingContent() {
   return (
     <>
       {/* Tropical teal gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/60 via-white to-sky-50/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-100/70 via-emerald-50/40 to-sky-100/50" />
 
       {/* Decorative orbs */}
-      <div className="absolute top-16 right-0 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-16 -left-10 w-64 h-64 bg-sky-200/15 rounded-full blur-3xl" />
+      <div className="absolute top-10 right-0 w-80 h-80 bg-teal-200/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-0 w-72 h-72 bg-sky-200/30 rounded-full blur-3xl" />
 
       {/* Mountain silhouette */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-[0.03]">
+      <div className="absolute bottom-0 left-0 right-0 opacity-[0.07]">
         <svg viewBox="0 0 1440 350" preserveAspectRatio="none" className="w-full h-32 sm:h-48">
           <path fill="currentColor" d="M0,350 L0,280 L100,200 L180,240 L300,100 L420,200 L540,60 L660,180 L780,80 L900,200 L1020,120 L1140,220 L1260,140 L1360,200 L1440,160 L1440,350Z" />
         </svg>
@@ -344,13 +344,13 @@ function JourneyPricingContent() {
 
 function ApplicationSection() {
   return (
-    <section id="apply" className="relative py-16 sm:py-24 px-6 overflow-hidden">
+    <section id="apply" className="relative py-16 sm:py-24 px-6">
       {/* Warm gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-amber-50/30 to-sky-50/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-50/60 via-white to-teal-50/40" />
 
       {/* Decorative orbs */}
-      <div className="absolute top-20 -right-20 w-80 h-80 bg-amber-200/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 -left-20 w-72 h-72 bg-teal-200/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-80 h-80 bg-amber-200/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-72 h-72 bg-teal-200/20 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-2xl mx-auto">
         <ScrollReveal>
