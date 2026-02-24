@@ -4,12 +4,39 @@ import { useState, useEffect } from "react";
 
 const EARLY_BIRD_DEADLINE = new Date("2026-03-31T23:59:59");
 
-export function EarlyBirdPricingBar() {
-  const [isEarlyBird, setIsEarlyBird] = useState(true);
+function useEarlyBirdCountdown() {
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
-    setIsEarlyBird(new Date() <= EARLY_BIRD_DEADLINE);
+    const interval = setInterval(() => {
+      setTimeLeft(getTimeLeft());
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
+
+  return timeLeft;
+}
+
+function getTimeLeft() {
+  const now = new Date();
+  const total = EARLY_BIRD_DEADLINE.getTime() - now.getTime();
+
+  if (total <= 0) {
+    return { isEarlyBird: false, days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    isEarlyBird: true,
+    days: Math.floor(total / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((total / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((total / (1000 * 60)) % 60),
+    seconds: Math.floor((total / 1000) % 60),
+  };
+}
+
+export function EarlyBirdPricingBar() {
+  const { isEarlyBird, days, hours, minutes, seconds } =
+    useEarlyBirdCountdown();
 
   return (
     <div>
@@ -27,13 +54,20 @@ export function EarlyBirdPricingBar() {
               Early Bird
             </span>
           </p>
+          <p className="text-[10px] sm:text-xs text-emerald-600 font-medium tabular-nums mt-0.5">
+            {days}d {String(hours).padStart(2, "0")}h{" "}
+            {String(minutes).padStart(2, "0")}m{" "}
+            {String(seconds).padStart(2, "0")}s left
+          </p>
           <p className="text-[10px] sm:text-xs text-gray-400">
-            Before Mar 31 &middot; Airfare not included
+            Airfare not included
           </p>
         </>
       ) : (
         <>
-          <p className="font-bold text-gray-900 text-lg sm:text-2xl">$4,200</p>
+          <p className="font-bold text-gray-900 text-lg sm:text-2xl">
+            $4,200
+          </p>
           <p className="text-[10px] sm:text-xs text-gray-400">
             Airfare not included
           </p>
@@ -44,11 +78,8 @@ export function EarlyBirdPricingBar() {
 }
 
 export function EarlyBirdPricingForm() {
-  const [isEarlyBird, setIsEarlyBird] = useState(true);
-
-  useEffect(() => {
-    setIsEarlyBird(new Date() <= EARLY_BIRD_DEADLINE);
-  }, []);
+  const { isEarlyBird, days, hours, minutes, seconds } =
+    useEarlyBirdCountdown();
 
   return (
     <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
@@ -59,10 +90,17 @@ export function EarlyBirdPricingForm() {
         </span>
       </div>
       {isEarlyBird ? (
-        <p className="text-xs text-gray-500 mt-1">
-          Early bird pricing — <span className="line-through">$4,200</span>{" "}
-          until March 31, 2026
-        </p>
+        <div className="mt-1">
+          <p className="text-xs text-gray-500">
+            Early bird pricing —{" "}
+            <span className="line-through">$4,200</span>
+          </p>
+          <p className="text-xs text-emerald-600 font-medium tabular-nums mt-0.5">
+            Ends in {days}d {String(hours).padStart(2, "0")}h{" "}
+            {String(minutes).padStart(2, "0")}m{" "}
+            {String(seconds).padStart(2, "0")}s
+          </p>
+        </div>
       ) : (
         <p className="text-xs text-gray-500 mt-1">Standard registration</p>
       )}
