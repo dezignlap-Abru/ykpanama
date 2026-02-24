@@ -2,6 +2,7 @@
 
 import { useState, useRef, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { EarlyBirdPricingForm } from "./EarlyBirdPricing";
 
 const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "";
 
@@ -736,19 +737,7 @@ export default function ApplicationForm() {
                 </h4>
 
                 <div className="space-y-4 mb-6">
-                  <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium text-gray-700">
-                        Program Cost
-                      </span>
-                      <span className="text-lg font-bold text-gray-900">
-                        $4,200
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1">
-                      Early bird: $4,000 if registered before March 31, 2026
-                    </p>
-                  </div>
+                  <EarlyBirdPricingForm />
 
                   <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
                     <div className="flex items-start gap-3">

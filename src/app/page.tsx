@@ -2,6 +2,8 @@ import SnapScrollPage from "@/components/SnapScrollPage";
 import SnapReveal from "@/components/SnapReveal";
 import ScrollReveal from "@/components/ScrollReveal";
 import ApplicationForm from "@/components/ApplicationForm";
+import CountdownTimer from "@/components/CountdownTimer";
+import { EarlyBirdPricingBar, EarlyBirdPricingForm } from "@/components/EarlyBirdPricing";
 
 /* ───────────────────────────────────────────────
    SNAP SECTION 0 — HERO
@@ -56,7 +58,13 @@ function HeroContent() {
           <p className="text-base sm:text-xl text-white/80 max-w-2xl mx-auto mb-2 sm:mb-3 leading-relaxed">
             Three weeks of growth, adventure &amp; real connection.
           </p>
-          <p className="text-sm sm:text-base text-white/50 mb-6 sm:mb-10">June 22 — July 14, 2026</p>
+          <p className="text-sm sm:text-base text-white/50 mb-4 sm:mb-6">June 22 — July 14, 2026</p>
+        </SnapReveal>
+
+        <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.45}>
+          <div className="mb-4 sm:mb-8">
+            <CountdownTimer />
+          </div>
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.5}>
@@ -275,12 +283,7 @@ function JourneyPricingContent() {
               <p className="font-semibold text-gray-900 text-sm sm:text-base">June 22 – July 14, 2026</p>
             </div>
             <div className="hidden sm:block w-px h-10 bg-gray-200" />
-            <div>
-              <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-0.5 sm:mb-1">Price</p>
-              <p className="text-gray-400 text-xs sm:text-sm"><span className="line-through">$4,200</span></p>
-              <p className="font-bold text-gray-900 text-lg sm:text-2xl">$4,000 <span className="text-emerald-600 font-medium text-xs sm:text-sm">Early Bird</span></p>
-              <p className="text-[10px] sm:text-xs text-gray-400">Before Mar 31 &middot; Airfare not included</p>
-            </div>
+            <EarlyBirdPricingBar />
             <a href="#apply" className="px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all text-xs sm:text-sm shrink-0">
               Apply Now
             </a>
