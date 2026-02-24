@@ -39,13 +39,13 @@ function HeroContent() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0}>
-          <p className="text-sm tracking-[0.3em] uppercase text-white/70 mb-6 font-medium">
+          <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-white/70 mb-3 sm:mb-6 font-medium">
             Summer 5786
           </p>
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="scaleIn" delay={0.15}>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white tracking-tight leading-[1.05] mb-3 sm:mb-6">
             Yeshivas Kayitz
             <br />
             <span className="text-white/60">Panama</span>
@@ -53,10 +53,10 @@ function HeroContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0.35}>
-          <p className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-3 leading-relaxed">
+          <p className="text-base sm:text-xl text-white/80 max-w-2xl mx-auto mb-2 sm:mb-3 leading-relaxed">
             Three weeks of growth, adventure &amp; real connection.
           </p>
-          <p className="text-base text-white/50 mb-10">June 22 — July 14, 2026</p>
+          <p className="text-sm sm:text-base text-white/50 mb-6 sm:mb-10">June 22 — July 14, 2026</p>
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.5}>
@@ -71,7 +71,7 @@ function HeroContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.7}>
-          <div className="mt-14 flex items-center justify-center gap-2 text-sm text-white/50">
+          <div className="mt-8 sm:mt-14 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/50">
             <svg className="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
@@ -100,16 +100,16 @@ function AboutContent() {
   return (
     <div className="max-w-3xl mx-auto text-center px-6">
       <SnapReveal sectionIndex={1} preset="fadeBlur" delay={0}>
-        <p className="text-sm tracking-[0.2em] uppercase text-gray-400 mb-3">
+        <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">
           What We&apos;re About
         </p>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-6">
           Purpose. Growth. Adventure.
         </h2>
       </SnapReveal>
 
       <SnapReveal sectionIndex={1} preset="fadeBlur" delay={0.15}>
-        <p className="text-gray-500 text-lg leading-relaxed mb-8">
+        <p className="text-gray-500 text-sm sm:text-lg leading-relaxed mb-4 sm:mb-8">
           A summer program in Panama for bochurim who want something real — daily
           structure, morning workouts, learning maamer V&apos;Ata Tetzave, farbrengens
           that lead to actual hachlatos, and serious outdoor adventures. No fluff,
@@ -118,10 +118,10 @@ function AboutContent() {
       </SnapReveal>
 
       <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.3}>
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-8">
           {highlights.map((h) => (
-            <span key={h.label} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full text-sm text-gray-600">
-              <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span key={h.label} className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-50 border border-gray-100 rounded-full text-xs sm:text-sm text-gray-600">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={h.icon} />
               </svg>
               {h.label}
@@ -131,7 +131,7 @@ function AboutContent() {
       </SnapReveal>
 
       <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.45}>
-        <p className="text-gray-400 italic text-sm sm:text-base">
+        <p className="text-gray-400 italic text-xs sm:text-base">
           The goal? A bochur comes home more grounded, more confident, and proud of what he accomplished.
         </p>
       </SnapReveal>
@@ -174,14 +174,14 @@ function ExperienceContent() {
   return (
     <div className="max-w-5xl mx-auto px-6 w-full">
       <SnapReveal sectionIndex={2} preset="fadeBlur" delay={0}>
-        <div className="text-center mb-8">
-          <p className="text-sm tracking-[0.2em] uppercase text-gray-400 mb-3">Last Summer</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">The Experience</h2>
+        <div className="text-center mb-4 sm:mb-8">
+          <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">Last Summer</p>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">The Experience</h2>
         </div>
       </SnapReveal>
 
       {/* Numbered photo gallery — drop real images in public/ folder */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {gallery.map((item) => (
           <SnapReveal key={item.num} sectionIndex={2} preset="scaleIn" delay={0.1 + item.num * 0.1}>
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4] group cursor-pointer">
@@ -239,14 +239,14 @@ function JourneyPricingContent() {
   return (
     <div className="max-w-5xl mx-auto px-6 w-full">
       <SnapReveal sectionIndex={3} preset="fadeBlur" delay={0}>
-        <div className="text-center mb-8">
-          <p className="text-sm tracking-[0.2em] uppercase text-gray-400 mb-3">The Journey</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Where We Go</h2>
+        <div className="text-center mb-4 sm:mb-8">
+          <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">The Journey</p>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">Where We Go</h2>
         </div>
       </SnapReveal>
 
-      {/* Location cards — always 3 columns so it fits 100vh on mobile */}
-      <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-10">
+      {/* Location cards — always 3 columns so it fits 100dvh on mobile */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-10">
         {locations.map((loc, i) => (
           <SnapReveal key={loc.name} sectionIndex={3} preset={i === 0 ? "slideRight" : i === 2 ? "slideLeft" : "scaleIn"} delay={0.12 + i * 0.12}>
             <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 h-full">
@@ -268,19 +268,20 @@ function JourneyPricingContent() {
 
       {/* Dates & Pricing bar */}
       <SnapReveal sectionIndex={3} preset="fadeUp" delay={0.5}>
-        <div className="bg-gray-50 rounded-2xl border border-gray-100 p-5 sm:p-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-100 p-3 sm:p-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-center sm:text-left">
             <div>
-              <p className="text-xs tracking-[0.15em] uppercase text-gray-400 mb-1">Dates</p>
-              <p className="font-semibold text-gray-900">June 22 – July 14, 2026</p>
+              <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-0.5 sm:mb-1">Dates</p>
+              <p className="font-semibold text-gray-900 text-sm sm:text-base">June 22 – July 14, 2026</p>
             </div>
             <div className="hidden sm:block w-px h-10 bg-gray-200" />
             <div>
-              <p className="text-xs tracking-[0.15em] uppercase text-gray-400 mb-1">Price</p>
-              <p className="font-semibold text-gray-900">$4,200 <span className="text-gray-400 font-normal text-sm">/ Early bird $4,000</span></p>
-              <p className="text-xs text-gray-400">Before Mar 31 &middot; Airfare not included</p>
+              <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-0.5 sm:mb-1">Price</p>
+              <p className="text-gray-400 text-xs sm:text-sm"><span className="line-through">$4,200</span></p>
+              <p className="font-bold text-gray-900 text-lg sm:text-2xl">$4,000 <span className="text-emerald-600 font-medium text-xs sm:text-sm">Early Bird</span></p>
+              <p className="text-[10px] sm:text-xs text-gray-400">Before Mar 31 &middot; Airfare not included</p>
             </div>
-            <a href="#apply" className="px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all text-sm shrink-0">
+            <a href="#apply" className="px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all text-xs sm:text-sm shrink-0">
               Apply Now
             </a>
           </div>

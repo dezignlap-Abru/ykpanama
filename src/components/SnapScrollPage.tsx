@@ -95,7 +95,7 @@ export default function SnapScrollPage({
     <SnapScrollContext value={{ activeSection }}>
       <main
         ref={mainRef}
-        className="h-screen overflow-y-auto snap-y snap-proximity"
+        className="h-[100dvh] overflow-y-auto snap-y snap-proximity"
       >
         {/* Snap sections */}
         {snapSections.map((section, i) => {
@@ -106,7 +106,7 @@ export default function SnapScrollPage({
               key={i}
               id={sectionIds[i] || undefined}
               ref={setSectionRef(i)}
-              className={`h-screen snap-start relative ${
+              className={`h-[100dvh] snap-start relative ${
                 isScrollable
                   ? "overflow-y-auto"
                   : "flex items-center justify-center overflow-hidden"
