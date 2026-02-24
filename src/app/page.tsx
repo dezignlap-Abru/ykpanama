@@ -298,28 +298,26 @@ function JourneyPricingContent() {
    NORMAL SCROLL SECTIONS (form, contact, footer)
    ─────────────────────────────────────────────── */
 
-function ApplicationContent() {
+function ApplicationSection() {
   return (
-    <div className="w-full h-full overflow-y-auto">
-      <div className="py-16 px-6">
-        <div className="max-w-2xl mx-auto">
-          <SnapReveal sectionIndex={4} preset="fadeBlur" delay={0}>
-            <div className="text-center mb-10">
-              <p className="text-sm tracking-[0.2em] uppercase text-gray-400 mb-3">Join Us</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Apply Now</h2>
-              <p className="text-gray-500 max-w-lg mx-auto">
-                Fill this out and we&apos;ll get back to you within a few days.
-              </p>
-            </div>
-          </SnapReveal>
-          <SnapReveal sectionIndex={4} preset="fadeUp" delay={0.15}>
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-10 shadow-sm">
-              <ApplicationForm />
-            </div>
-          </SnapReveal>
-        </div>
+    <section id="apply" className="py-16 sm:py-24 px-6">
+      <div className="max-w-2xl mx-auto">
+        <ScrollReveal>
+          <div className="text-center mb-10">
+            <p className="text-sm tracking-[0.2em] uppercase text-gray-400 mb-3">Join Us</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Apply Now</h2>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              Fill this out and we&apos;ll get back to you within a few days.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <div className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-10 shadow-sm">
+            <ApplicationForm />
+          </div>
+        </ScrollReveal>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -383,13 +381,13 @@ export default function Home() {
         <AboutContent key="about" />,
         <ExperienceContent key="experience" />,
         <JourneyPricingContent key="journey" />,
-        <ApplicationContent key="apply" />,
       ]}
       normalSections={[
+        <ApplicationSection key="apply" />,
         <ContactSection key="contact" />,
         <Footer key="footer" />,
       ]}
-      sectionIds={["", "about", "experience", "journey", "apply", "", ""]}
+      sectionIds={["", "about", "experience", "journey"]}
     />
   );
 }

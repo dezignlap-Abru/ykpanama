@@ -20,7 +20,6 @@ const DOT_LABELS = [
   "About",
   "Experience",
   "Journey",
-  "Apply",
 ];
 
 export default function SnapScrollPage({
