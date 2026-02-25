@@ -5,9 +5,16 @@ import { useState, useEffect } from "react";
 const EARLY_BIRD_DEADLINE = new Date("2026-03-31T23:59:59");
 
 function useEarlyBirdCountdown() {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState({
+    isEarlyBird: true,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
+    setTimeLeft(getTimeLeft());
     const interval = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);

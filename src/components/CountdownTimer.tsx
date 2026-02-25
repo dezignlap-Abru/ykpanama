@@ -6,12 +6,32 @@ const EARLY_BIRD_DEADLINE = new Date("2026-03-31T23:59:59");
 const CAMP_START = new Date("2026-06-22T00:00:00");
 
 export default function CountdownTimer() {
-  const [now, setNow] = useState(new Date());
+  const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
+    setNow(new Date());
     const interval = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!now) {
+    return (
+      <div className="text-center">
+        <p className="text-xs sm:text-sm uppercase tracking-widest text-white/60 mb-2 sm:mb-3 font-medium">
+          Early Bird Ends In
+        </p>
+        <div className="flex items-center justify-center gap-3 sm:gap-5">
+          <TimeBlock value={0} label="Days" />
+          <span className="text-white/30 text-lg sm:text-2xl font-light">:</span>
+          <TimeBlock value={0} label="Hours" />
+          <span className="text-white/30 text-lg sm:text-2xl font-light">:</span>
+          <TimeBlock value={0} label="Min" />
+          <span className="text-white/30 text-lg sm:text-2xl font-light">:</span>
+          <TimeBlock value={0} label="Sec" />
+        </div>
+      </div>
+    );
+  }
 
   const isEarlyBird = now <= EARLY_BIRD_DEADLINE;
   const target = isEarlyBird ? EARLY_BIRD_DEADLINE : CAMP_START;

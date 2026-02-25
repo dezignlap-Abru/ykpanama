@@ -193,7 +193,7 @@ function AboutContent() {
 
         <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.45}>
           <p className="text-gray-400 italic text-xs sm:text-base">
-            The goal? A bochur comes home more grounded, more confident, and proud of what he accomplished.
+            Last summer, bochurim from across the country summited Volcán Barú, island-hopped through Bocas del Toro, and tackled whitewater rapids &mdash; each one pushing past his own limits, whether that meant learning the maamer by heart, opening up at a farbrengen, or waking up early for a mountain workout.
           </p>
         </SnapReveal>
       </div>
