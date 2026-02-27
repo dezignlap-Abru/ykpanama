@@ -5,6 +5,7 @@ import ApplicationForm from "@/components/ApplicationForm";
 import CountdownTimer from "@/components/CountdownTimer";
 import HorizontalCarousel from "@/components/HorizontalCarousel";
 import GalleryCard from "@/components/GalleryCard";
+import AutoPlayVideo from "@/components/AutoPlayVideo";
 import { EarlyBirdPricingBar, EarlyBirdPricingForm } from "@/components/EarlyBirdPricing";
 
 /* ─── Reusable wave SVG shapes ─── */
@@ -46,14 +47,10 @@ function WaveBottomAlt({ color = "white", className = "" }: { color?: string; cl
 function HeroContent() {
   return (
     <>
-      {/* Video background — drop your file at public/hero-video.mp4 */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
+      {/* Video background — auto-plays on all devices including iOS */}
+      <AutoPlayVideo
         src="/hero-video.mp4"
-        muted
-        autoPlay
-        loop
-        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
       {/* Gradient overlay */}
@@ -255,7 +252,6 @@ function ExperienceContent() {
     { file: "IMG_0815.jpg" },
     { file: "IMG_1014.jpg" },
     { file: "IMG_1356.jpg" },
-    { file: "IMG_1360.jpg" },
     { file: "IMG_1462.jpg" },
     { file: "IMG_8451.jpg" },
     { file: "dji_mimo_20250722_115816_0_1753211781587_photo.jpg" },
