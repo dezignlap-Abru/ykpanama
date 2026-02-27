@@ -3,6 +3,8 @@ import SnapReveal from "@/components/SnapReveal";
 import ScrollReveal from "@/components/ScrollReveal";
 import ApplicationForm from "@/components/ApplicationForm";
 import CountdownTimer from "@/components/CountdownTimer";
+import HorizontalCarousel from "@/components/HorizontalCarousel";
+import GalleryCard from "@/components/GalleryCard";
 import { EarlyBirdPricingBar, EarlyBirdPricingForm } from "@/components/EarlyBirdPricing";
 
 /* ─── Reusable wave SVG shapes ─── */
@@ -171,10 +173,9 @@ function AboutContent() {
 
         <SnapReveal sectionIndex={1} preset="fadeBlur" delay={0.15}>
           <p className="text-gray-500 text-sm sm:text-lg leading-relaxed mb-4 sm:mb-8">
-            A summer program in Panama for bochurim who want something real — daily
-            structure, morning workouts, learning maamer V&apos;Ata Tetzave, farbrengens
-            that lead to actual hachlatos, and serious outdoor adventures. No fluff,
-            just a focused and meaningful few weeks.
+            A summer program in Panama for Lubavitch bochurim in the range of 17
+            who want something real — no fluff, just a focused and meaningful
+            few weeks of growth, adventure, and real connection.
           </p>
         </SnapReveal>
 
@@ -192,9 +193,39 @@ function AboutContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.45}>
-          <p className="text-gray-400 italic text-xs sm:text-base">
+          <p className="text-gray-400 italic text-xs sm:text-base mb-4 sm:mb-8">
             Last summer, bochurim from across the country summited Volcán Barú, island-hopped through Bocas del Toro, and tackled whitewater rapids &mdash; each one pushing past his own limits, whether that meant learning the maamer by heart, opening up at a farbrengen, or waking up early for a mountain workout.
           </p>
+        </SnapReveal>
+
+        <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.55}>
+          <div className="bg-white/60 backdrop-blur-sm border border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left shadow-sm">
+            <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-2 sm:mb-3 text-center">Who&apos;s Behind It</p>
+            <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+              YK Panama has been coordinated with <span className="text-gray-700 font-medium">Wilkes-Barre Bais Menachem Youth Development Program</span> since its inception and continues to work in close collaboration with their staff. The program is open for Lubavitch boys in the age range of 17 who could benefit from such an experience.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+              <div className="flex items-start gap-2 flex-1 bg-white/70 rounded-lg p-2.5 sm:p-3 border border-gray-50">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" />
+                </svg>
+                <div>
+                  <p className="text-gray-700 font-medium text-xs sm:text-sm">Rabbi Yakov &amp; Mrs. Hana Poliwoda</p>
+                  <p className="text-gray-400 text-[10px] sm:text-xs">Hosts &middot; Chabad Boquete</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 flex-1 bg-white/70 rounded-lg p-2.5 sm:p-3 border border-gray-50">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <div>
+                  <p className="text-gray-700 font-medium text-xs sm:text-sm">Abru Lapidus</p>
+                  <p className="text-gray-400 text-[10px] sm:text-xs">Head Counselor &middot; 4th year &middot; Currently at Wilkes</p>
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-400 text-[10px] sm:text-xs mt-2 sm:mt-3 text-center italic">Counselor team to be announced</p>
+          </div>
         </SnapReveal>
       </div>
     </>
@@ -206,11 +237,29 @@ function AboutContent() {
    ─────────────────────────────────────────────── */
 
 function ExperienceContent() {
-  const gallery = [
-    { num: 1, title: "Volcan Baru Summit", detail: "11,401 ft — the highest point in Panama.", file: "summit.jpg" },
-    { num: 2, title: "Bocas del Toro", detail: "Caribbean islands, snorkeling, beaches.", file: "bocas.jpg" },
-    { num: 3, title: "Farbrengen Night", detail: "Real conversations. Real hachlatos.", file: "farbrengen.jpg" },
-    { num: 4, title: "Adventures", detail: "Rafting, zip lining, horseback riding & more.", file: "adventure.jpg" },
+  /*
+   * ADD YOUR MEDIA HERE — just drop files into public/gallery/ and add them to this list.
+   * Supported: .jpg, .jpeg, .png, .webp (photos) and .mp4, .mov, .webm (videos)
+   * Caption is optional — leave it out for no text overlay.
+   */
+  const media: { file: string; caption?: string }[] = [
+    { file: "IMG_7923.jpg" },
+    { file: "IMG_7958.jpg" },
+    { file: "IMG_0336.JPG" },
+    { file: "IMG_0339.JPG" },
+    { file: "IMG_9912.jpg" },
+    { file: "IMG_0429.jpg" },
+    { file: "IMG_0492.jpg" },
+    { file: "IMG_0633.jpg" },
+    { file: "IMG_0673.jpg" },
+    { file: "IMG_0815.jpg" },
+    { file: "IMG_1014.jpg" },
+    { file: "IMG_1356.jpg" },
+    { file: "IMG_1360.jpg" },
+    { file: "IMG_1462.jpg" },
+    { file: "IMG_8451.jpg" },
+    { file: "dji_mimo_20250722_115816_0_1753211781587_photo.jpg" },
+    { file: "promo 2025 panama.mp4", caption: "Promo 2025" },
   ];
 
   return (
@@ -227,35 +276,22 @@ function ExperienceContent() {
       {/* Wave bottom into next section */}
       <WaveBottomAlt color="#f0fdfa" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
+      <div className="relative z-10 w-full">
         <SnapReveal sectionIndex={2} preset="fadeBlur" delay={0}>
-          <div className="text-center mb-4 sm:mb-8">
+          <div className="text-center mb-4 sm:mb-8 px-6">
             <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">Last Summer</p>
             <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">The Experience</h2>
+            <p className="text-gray-400 text-xs sm:text-sm mt-2">Swipe or drag to explore</p>
           </div>
         </SnapReveal>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {gallery.map((item) => (
-            <SnapReveal key={item.num} sectionIndex={2} preset="scaleIn" delay={0.1 + item.num * 0.1}>
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-[3/4] group cursor-pointer">
-                {/* Replace placeholder with: <Image src={`/${item.file}`} alt={item.title} fill className="object-cover" /> */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm">
-                  <span className="text-sm font-bold text-gray-900">{item.num}</span>
-                </div>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 pt-12">
-                  <h3 className="text-white font-semibold text-base mb-0.5">{item.title}</h3>
-                  <p className="text-white/70 text-xs leading-relaxed">{item.detail}</p>
-                </div>
-              </div>
-            </SnapReveal>
-          ))}
-        </div>
+        <SnapReveal sectionIndex={2} preset="fadeUp" delay={0.2}>
+          <HorizontalCarousel cardWidth={280} gap={16}>
+            {media.map((item, i) => (
+              <GalleryCard key={i} file={item.file} caption={item.caption} index={i} />
+            ))}
+          </HorizontalCarousel>
+        </SnapReveal>
       </div>
     </>
   );
@@ -293,9 +329,14 @@ function JourneyPricingContent() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
         <SnapReveal sectionIndex={3} preset="fadeBlur" delay={0}>
-          <div className="text-center mb-4 sm:mb-8">
+          <div className="text-center mb-3 sm:mb-6">
             <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">The Journey</p>
-            <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">Where We Go</h2>
+            <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">Where We Go &amp; What We Do</h2>
+            <p className="text-gray-500 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+              Daily structure, morning workouts, learning maamer V&apos;Ata Tetzave,
+              farbrengens, and serious outdoor adventures — all woven into
+              three weeks across Panama.
+            </p>
           </div>
         </SnapReveal>
 
