@@ -102,7 +102,7 @@ export default function SnapScrollPage({
             key={i}
             id={sectionIds[i] || undefined}
             ref={setSectionRef(i)}
-            className="h-[100dvh] snap-start relative flex items-center justify-center overflow-hidden"
+            className="min-h-[100dvh] sm:h-[100dvh] snap-start relative flex items-center justify-center overflow-hidden py-6 sm:py-0"
           >
             {section}
           </section>
