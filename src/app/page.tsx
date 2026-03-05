@@ -1,3 +1,5 @@
+"use client";
+
 import SnapScrollPage from "@/components/SnapScrollPage";
 import SnapReveal from "@/components/SnapReveal";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -81,11 +83,8 @@ function HeroContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="scaleIn" delay={0.15}>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold text-white tracking-tight leading-[1.05] mb-3 sm:mb-6">
-            Yeshivas Kayitz
-            <br />
-            <span className="text-white/60">Panama</span>
-          </h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Yeshivas Kayitz Panama" className="w-64 sm:w-80 md:w-[28rem] mx-auto mb-3 sm:mb-6" />
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0.35}>
@@ -113,12 +112,12 @@ function HeroContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.7}>
-          <div className="mt-8 sm:mt-14 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/50">
+          <a href="#about" className="mt-8 sm:mt-14 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer">
             <svg className="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
             Scroll to explore
-          </div>
+          </a>
         </SnapReveal>
       </div>
     </>
@@ -175,7 +174,7 @@ function AboutContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.3}>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             {highlights.map((h) => (
               <span key={h.label} className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-full text-xs sm:text-sm text-gray-600 shadow-sm">
                 <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -187,41 +186,43 @@ function AboutContent() {
           </div>
         </SnapReveal>
 
-        <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.45}>
-          <p className="text-gray-400 italic text-xs sm:text-base mb-4 sm:mb-8">
-            Last summer, bochurim from across the country summited Volcán Barú, island-hopped through Bocas del Toro, and tackled whitewater rapids &mdash; each one pushing past his own limits, whether that meant learning the maamer by heart, opening up at a farbrengen, or waking up early for a mountain workout.
-          </p>
-        </SnapReveal>
-
-        <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.55}>
-          <div className="bg-white/60 backdrop-blur-sm border border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left shadow-sm">
+        {/* Who's Behind It — with photos */}
+        <SnapReveal sectionIndex={1} preset="fadeUp" delay={0.4}>
+          <div className="bg-white/60 backdrop-blur-sm border border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-left shadow-sm mb-4 sm:mb-6">
             <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-2 sm:mb-3 text-center">Who&apos;s Behind It</p>
-            <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-              YK Panama has been coordinated with <span className="text-gray-700 font-medium">Wilkes-Barre Bais Menachem Youth Development Program</span> since its inception and continues to work in close collaboration with their staff. The program is open for Lubavitch boys in the age range of 17 who could benefit from such an experience.
+            <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 text-center">
+              Coordinated with <span className="text-gray-700 font-medium">Wilkes-Barre Bais Menachem</span> since day one.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <div className="flex items-start gap-2 flex-1 bg-white/70 rounded-lg p-2.5 sm:p-3 border border-gray-50">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" />
-                </svg>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              {/* Host card */}
+              <div className="flex items-center gap-3 flex-1 bg-white/70 rounded-xl p-3 border border-gray-50">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 shrink-0 overflow-hidden flex items-center justify-center">
+                  <span className="text-emerald-600 font-semibold text-xs sm:text-sm">YH</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/staff/host.jpeg" alt="Rabbi Yakov & Mrs. Hana Poliwoda" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                </div>
                 <div>
                   <p className="text-gray-700 font-medium text-xs sm:text-sm">Rabbi Yakov &amp; Mrs. Hana Poliwoda</p>
                   <p className="text-gray-400 text-[10px] sm:text-xs">Hosts &middot; Chabad Boquete</p>
                 </div>
               </div>
-              <div className="flex items-start gap-2 flex-1 bg-white/70 rounded-lg p-2.5 sm:p-3 border border-gray-50">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              {/* Head Counselor card */}
+              <div className="flex items-center gap-3 flex-1 bg-white/70 rounded-xl p-3 border border-gray-50">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 shrink-0 overflow-hidden flex items-center justify-center">
+                  <span className="text-emerald-600 font-semibold text-xs sm:text-sm">AL</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/staff/abru.jpg" alt="Abru Lapidus" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                </div>
                 <div>
                   <p className="text-gray-700 font-medium text-xs sm:text-sm">Abru Lapidus</p>
-                  <p className="text-gray-400 text-[10px] sm:text-xs">Head Counselor &middot; 4th year &middot; Currently at Wilkes</p>
+                  <p className="text-gray-400 text-[10px] sm:text-xs">Head Counselor &middot; 4th year</p>
                 </div>
               </div>
             </div>
             <p className="text-gray-400 text-[10px] sm:text-xs mt-2 sm:mt-3 text-center italic">Counselor team to be announced</p>
           </div>
         </SnapReveal>
+
       </div>
     </>
   );
@@ -246,12 +247,25 @@ function ExperienceContent() {
     { file: "IMG_0429.jpg" },
     { file: "IMG_0492.jpg" },
     { file: "IMG_0633.jpg" },
+    { file: "IMG_0640.jpg" },
     { file: "IMG_0673.jpg" },
+    { file: "IMG_0791.jpg" },
     { file: "IMG_0815.jpg" },
+    { file: "IMG_0948.jpg" },
+    { file: "IMG_0989.jpg" },
     { file: "IMG_1014.jpg" },
     { file: "IMG_1356.jpg" },
     { file: "IMG_1462.jpg" },
+    { file: "IMG_1519.jpg" },
+    { file: "IMG_1575.jpg" },
+    { file: "IMG_8076.jpg" },
+    { file: "IMG_8202.jpg" },
+    { file: "IMG_8339.jpg" },
     { file: "IMG_8451.jpg" },
+    { file: "IMG_0104.jpg" },
+    { file: "IMG_0180.jpg" },
+    { file: "IMG_0274.jpg" },
+    { file: "panama.jpg" },
     { file: "dji_mimo_20250722_115816_0_1753211781587_photo.jpg" },
     { file: "promo 2025 panama.mp4", caption: "Promo 2025" },
   ];
@@ -273,7 +287,6 @@ function ExperienceContent() {
       <div className="relative z-10 w-full">
         <SnapReveal sectionIndex={2} preset="fadeBlur" delay={0}>
           <div className="text-center mb-4 sm:mb-8 px-6">
-            <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-gray-400 mb-2 sm:mb-3">Last Summer</p>
             <h2 className="text-2xl sm:text-4xl font-bold text-gray-900">The Experience</h2>
             <p className="text-gray-400 text-xs sm:text-sm mt-2">Swipe or drag to explore</p>
           </div>
@@ -286,6 +299,37 @@ function ExperienceContent() {
             ))}
           </HorizontalCarousel>
         </SnapReveal>
+
+        {/* Testimonials — hidden until real content is ready
+        <SnapReveal sectionIndex={2} preset="fadeUp" delay={0.35}>
+          <div className="max-w-4xl mx-auto px-6 mt-4 sm:mt-8">
+            <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400 mb-2 sm:mb-3 text-center">What They Say</p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              {[
+                { name: "Name here", role: "Summer 5785", quote: "Add a quote here from a bochur or parent about their experience.", photo: "/testimonials/1.jpg" },
+                { name: "Name here", role: "Summer 5785", quote: "Add a quote here from a bochur or parent about their experience.", photo: "/testimonials/2.jpg" },
+                { name: "Name here", role: "Summer 5785", quote: "Add a quote here from a bochur or parent about their experience.", photo: "/testimonials/3.jpg" },
+              ].map((t, i) => (
+                <div key={i} className="flex-1 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-3 sm:p-4 shadow-sm">
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 shrink-0 overflow-hidden flex items-center justify-center">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <img src={t.photo} alt={t.name} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    </div>
+                    <div>
+                      <p className="text-gray-700 font-medium text-[11px] sm:text-xs">{t.name}</p>
+                      <p className="text-gray-400 text-[9px] sm:text-[10px]">{t.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-500 text-[10px] sm:text-xs leading-relaxed italic">&ldquo;{t.quote}&rdquo;</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SnapReveal>
+        */}
       </div>
     </>
   );
@@ -297,9 +341,9 @@ function ExperienceContent() {
 
 function JourneyPricingContent() {
   const locations = [
-    { name: "Boquete", tag: "Home Base", description: "Mountains, coffee farms, cloud forest, hot springs.", icon: "M3 21l6-6m0 0l4-4m-4 4l-4-4m4 4l6-6m0 0l6 6M9 3l3 3m0 0l3-3" },
-    { name: "Bocas del Toro", tag: "3-Day Trip", description: "Caribbean islands, snorkeling, beaches.", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-    { name: "Panama City", tag: "Day Trip", description: "Casco Viejo, Panama Canal.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+    { name: "Boquete", tag: "Home Base", description: "Mountains, coffee farms, cloud forest, hot springs.", icon: "M3 21l6-6m0 0l4-4m-4 4l-4-4m4 4l6-6m0 0l6 6M9 3l3 3m0 0l3-3", image: "/locations/boquete.JPG" },
+    { name: "Bocas del Toro", tag: "3-Day Trip", description: "Caribbean islands, snorkeling, beaches.", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z", image: "/locations/bocas del toro.jpg" },
+    { name: "Panama City", tag: "Day Trip", description: "Casco Viejo, Panama Canal.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", image: "/locations/panama-city.jpg" },
   ];
 
   return (
@@ -338,11 +382,13 @@ function JourneyPricingContent() {
           {locations.map((loc, i) => (
             <SnapReveal key={loc.name} sectionIndex={3} preset={i === 0 ? "slideRight" : i === 2 ? "slideLeft" : "scaleIn"} delay={0.12 + i * 0.12}>
               <div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 h-full">
-                <div className="h-20 sm:h-28 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center relative">
+                <div className="h-20 sm:h-28 bg-gradient-to-br from-emerald-50 to-teal-100 flex items-center justify-center relative overflow-hidden">
                   <svg className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={loc.icon} />
                   </svg>
-                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/90 backdrop-blur-sm text-[9px] sm:text-[11px] font-medium text-gray-600 px-1.5 py-0.5 rounded-full">{loc.tag}</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={loc.image} alt={loc.name} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                  <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/90 backdrop-blur-sm text-[9px] sm:text-[11px] font-medium text-gray-600 px-1.5 py-0.5 rounded-full z-10">{loc.tag}</span>
                 </div>
                 <div className="p-2.5 sm:p-4">
                   <h3 className="font-semibold text-gray-900 text-xs sm:text-base mb-0.5 sm:mb-1">{loc.name}</h3>
@@ -446,7 +492,7 @@ function ContactSection() {
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               <div className="text-left">
-                <p className="text-xs text-white/40">WhatsApp</p>
+                <p className="text-xs text-white/40">WhatsApp — Rabbi Yaakov Poliwoda</p>
                 <p className="text-sm text-white font-medium">+507 6243 0666</p>
               </div>
             </a>
