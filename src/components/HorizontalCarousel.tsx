@@ -117,19 +117,21 @@ export default function HorizontalCarousel({
       </motion.div>
 
       {/* Dot indicators */}
-      <div className="flex items-center justify-center gap-2 mt-8">
-        {children.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => snapToCard(i)}
-            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-              i === currentIndex
-                ? "bg-gray-900 w-6"
-                : "bg-gray-300 w-2 hover:bg-gray-400"
-            }`}
-            aria-label={`Go to card ${i + 1}`}
-          />
-        ))}
+      <div className="mt-8 w-full flex justify-center">
+        <div className="flex items-center gap-1.5 max-w-[80vw] overflow-x-auto px-4 py-1 scrollbar-hide">
+          {children.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => snapToCard(i)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer shrink-0 ${
+                i === currentIndex
+                  ? "bg-gray-900 w-5"
+                  : "bg-gray-300 w-2 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to card ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
