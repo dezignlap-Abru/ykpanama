@@ -77,25 +77,25 @@ function HeroContent() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0}>
-          <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-white/70 mb-3 sm:mb-6 font-medium">
+          <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-white/70 mb-2 sm:mb-3 font-medium">
             Summer 5786
           </p>
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="scaleIn" delay={0.15}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Yeshivas Kayitz Panama" className="w-64 sm:w-80 md:w-[28rem] mx-auto mb-3 sm:mb-6" />
+          <img src="/logo.png" alt="Yeshivas Kayitz Panama" className="w-64 sm:w-80 md:w-[28rem] mx-auto mb-2 sm:mb-3" />
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0.35}>
           <p className="text-base sm:text-xl text-white/80 max-w-2xl mx-auto mb-2 sm:mb-3 leading-relaxed">
             Three weeks of growth, adventure &amp; real connection.
           </p>
-          <p className="text-sm sm:text-base text-white/50 mb-4 sm:mb-6">June 22 — July 14, 2026</p>
+          <p className="text-sm sm:text-base text-white/50 mb-2 sm:mb-3">June 22 — July 14, 2026</p>
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.45}>
-          <div className="mb-4 sm:mb-8">
+          <div className="mb-2 sm:mb-4">
             <CountdownTimer />
           </div>
         </SnapReveal>
@@ -112,7 +112,7 @@ function HeroContent() {
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeUp" delay={0.7}>
-          <a href="#about" className="mt-8 sm:mt-14 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer">
+          <a href="#about" className="mt-4 sm:mt-6 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/50 hover:text-white/80 transition-colors cursor-pointer">
             <svg className="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>

@@ -14,10 +14,30 @@ export default function AutoPlayVideo({ src, className }: AutoPlayVideoProps) {
     const video = videoRef.current;
     if (!video) return;
 
-    // Force play on mount — needed for some mobile browsers
-    video.play().catch(() => {
-      // Autoplay blocked — silently ignore
-    });
+    // iOS requires muted as a DOM property, not just an attribute
+    video.muted = true;
+    video.playsInline = true;
+
+    // Force play on mount
+    const tryPlay = () => {
+      video.play().catch(() => {});
+    };
+
+    tryPlay();
+
+    // Retry on first user interaction (iOS sometimes blocks until touch)
+    const handleInteraction = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("click", handleInteraction);
+    };
+    window.addEventListener("touchstart", handleInteraction, { once: true });
+    window.addEventListener("click", handleInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener("touchstart", handleInteraction);
+      window.removeEventListener("click", handleInteraction);
+    };
   }, []);
 
   return (
@@ -29,6 +49,7 @@ export default function AutoPlayVideo({ src, className }: AutoPlayVideoProps) {
       autoPlay
       loop
       playsInline
+      preload="auto"
     />
   );
 }
