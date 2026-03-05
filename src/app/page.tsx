@@ -211,10 +211,10 @@ function AboutContent() {
                 <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 shrink-0 overflow-hidden flex items-center justify-center">
                   <span className="text-emerald-600 font-semibold text-xs sm:text-sm">AL</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/staff/abru.jpg" alt="Abru Lapidus" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                  <img src="/staff/abru.jpg" alt="Abru & Roza Lapidus" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 </div>
                 <div>
-                  <p className="text-gray-700 font-medium text-xs sm:text-sm">Abru Lapidus</p>
+                  <p className="text-gray-700 font-medium text-xs sm:text-sm">Abru &amp; Roza Lapidus</p>
                   <p className="text-gray-400 text-[10px] sm:text-xs">Head Counselor &middot; 4th year</p>
                 </div>
               </div>
