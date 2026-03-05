@@ -74,7 +74,31 @@ export default function HorizontalCarousel({
   const minDrag = -(totalTrackWidth - containerWidth);
 
   return (
-    <div className="w-full overflow-hidden" style={{ touchAction: "pan-y" }}>
+    <div className="relative w-full overflow-hidden" style={{ touchAction: "pan-y" }}>
+      {/* Left arrow — side overlay (desktop only) */}
+      <button
+        onClick={() => snapToCard(currentIndex - 1)}
+        disabled={currentIndex === 0}
+        className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-600 hover:bg-white shadow-md disabled:opacity-0 disabled:cursor-not-allowed transition-all cursor-pointer"
+        aria-label="Previous"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      {/* Right arrow — side overlay (desktop only) */}
+      <button
+        onClick={() => snapToCard(currentIndex + 1)}
+        disabled={currentIndex === count - 1}
+        className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-gray-600 hover:bg-white shadow-md disabled:opacity-0 disabled:cursor-not-allowed transition-all cursor-pointer"
+        aria-label="Next"
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
       {/* Carousel track */}
       <motion.div
         ref={containerRef}
@@ -92,47 +116,20 @@ export default function HorizontalCarousel({
         ))}
       </motion.div>
 
-      {/* Dot indicators + arrows */}
-      <div className="flex items-center justify-center gap-4 mt-8">
-        {/* Left arrow (desktop only) */}
-        <button
-          onClick={() => snapToCard(currentIndex - 1)}
-          disabled={currentIndex === 0}
-          className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-          aria-label="Previous"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        {/* Dots */}
-        <div className="flex gap-2">
-          {children.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => snapToCard(i)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                i === currentIndex
-                  ? "bg-gray-900 w-6"
-                  : "bg-gray-300 w-2 hover:bg-gray-400"
-              }`}
-              aria-label={`Go to card ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Right arrow (desktop only) */}
-        <button
-          onClick={() => snapToCard(currentIndex + 1)}
-          disabled={currentIndex === count - 1}
-          className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
-          aria-label="Next"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+      {/* Dot indicators */}
+      <div className="flex items-center justify-center gap-2 mt-8">
+        {children.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => snapToCard(i)}
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              i === currentIndex
+                ? "bg-gray-900 w-6"
+                : "bg-gray-300 w-2 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to card ${i + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

@@ -84,7 +84,7 @@ function HeroContent() {
 
         <SnapReveal sectionIndex={0} preset="scaleIn" delay={0.15}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Yeshivas Kayitz Panama" className="w-64 sm:w-80 md:w-[28rem] mx-auto mb-2 sm:mb-3" />
+          <img src="/logo.png" alt="Yeshivas Kayitz Panama" className="w-64 sm:w-80 md:w-[28rem] mx-auto mb-0" />
         </SnapReveal>
 
         <SnapReveal sectionIndex={0} preset="fadeBlur" delay={0.35}>
